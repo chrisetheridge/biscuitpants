@@ -49,7 +49,7 @@
 ;; You can also try 'gd' (or 'C-c g d') to jump to their definition and see how
 ;; they are implemented.
 
-(setq company-idle-delay 0.1)
+(setq company-idle-delay 0.3)
 (setq company-show-numbers t)
 (setq company-tooltip-align-annotations t)
 
@@ -113,18 +113,22 @@
    cider-auto-select-error-buffer nil
    cider-save-file-on-load t
    cider-repl-history-file (concat user-emacs-directory "cider-history")
-   cider-repl-use-clojure-font-lock t
+   cider-repl-use-clojure-font-lock nil
    cider-font-lock-dynamically t
    cider-font-lock-reader-conditionals nil
+   cider-repl-use-pretty-printing t
    cider-repl-wrap-history t
    cider-repl-history-size 3000))
 
 (global-set-key (kbd "C-k") 'paredit-kill)
-(global-set-key (kbd "M-(") 'paredit-wrap-sexp)
-(global-set-key (kbd "M-}") 'paredit-wrap-curly)
-(global-set-key (kbd "M-[" ) 'paredit-wrap-square)
-(global-set-key (kbd "M-r") 'sp-splice-sexp-killing-around)
+(global-set-key (kbd "s-(") 'paredit-wrap-sexp)
+(global-set-key (kbd "s-}") 'paredit-wrap-curly)
+(global-set-key (kbd "s-[" ) 'paredit-wrap-square)
+(global-set-key (kbd "s-r") 'sp-splice-sexp-killing-around)
 (global-set-key (kbd "C-x b") 'ivy-switch-buffer)
 
 (global-set-key (kbd "s-}") 'centaur-tabs-forward)
 (global-set-key (kbd "s-{") 'centaur-tabs-backward)
+
+(after! counsel
+  (setq counsel-rg-base-command "rg -M 240 -C 2 --with-filename --no-heading --line-number %s || true"))
