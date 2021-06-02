@@ -110,6 +110,15 @@
    cider-repl-use-clojure-font-lock t
    cider-font-lock-dynamically t))
 
+
+;; Modeline
+(display-time-mode 1)
+(display-battery-mode 1)
+
+(setq doom-modeline-major-mode-icon t)
+(setq doom-modeline-enable-word-count t)
+(setq doom-modeline-modal-icon t)
+
 (global-set-key (kbd "C-k") 'paredit-kill)
 (global-set-key (kbd "s-(") 'paredit-wrap-sexp)
 (global-set-key (kbd "s-}") 'paredit-wrap-curly)
