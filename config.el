@@ -110,6 +110,14 @@
    cider-repl-use-clojure-font-lock t
    cider-font-lock-dynamically t))
 
+;; Compile and refresh
+(defun compile-and-load ()
+  (interactive)
+  (cider-load-buffer)
+  (cider-ns-refresh))
+
+;; Cider keybinds
+(global-set-key (kbd "C-c C-k") 'compile-and-load)
 
 ;; Modeline
 (display-time-mode 1)
@@ -119,6 +127,7 @@
 (setq doom-modeline-enable-word-count t)
 (setq doom-modeline-modal-icon t)
 
+;; Keybindings
 (global-set-key (kbd "C-k") 'paredit-kill)
 (global-set-key (kbd "s-(") 'paredit-wrap-sexp)
 (global-set-key (kbd "s-}") 'paredit-wrap-curly)
@@ -126,8 +135,8 @@
 (global-set-key (kbd "s-r") 'sp-splice-sexp-killing-around)
 (global-set-key (kbd "C-x b") 'ivy-switch-buffer)
 
-(global-set-key (kbd "s-}") 'centaur-tabs-forward)
-(global-set-key (kbd "s-{") 'centaur-tabs-backward)
+;; Cider keybinds
+(global-set-key (kbd "C-c C-k") 'compile-and-load)
 
 (after! counsel
   (setq counsel-rg-base-command "rg -M 240 -C 2 --with-filename --no-heading --line-number %s || true"))
