@@ -104,21 +104,11 @@
 ;; CIDER (clojure)
 (after! cider
   (setq
-   nrepl-log-messges t
-   cider-use-fringe-indicators nil
-   cider-prompt-for-symbol nil
    cider-repl-pop-to-buffer-on-connect nil
-   cider-repl-display-in-current-window t
-   cider-show-error-buffer t
-   cider-auto-select-error-buffer nil
-   cider-save-file-on-load t
-   cider-repl-history-file (concat user-emacs-directory "cider-history")
-   cider-repl-use-clojure-font-lock nil
-   cider-font-lock-dynamically t
+   cider-show-error-buffer nil
    cider-font-lock-reader-conditionals nil
-   cider-repl-use-pretty-printing t
-   cider-repl-wrap-history t
-   cider-repl-history-size 3000))
+   cider-repl-use-clojure-font-lock t
+   cider-font-lock-dynamically t))
 
 (global-set-key (kbd "C-k") 'paredit-kill)
 (global-set-key (kbd "s-(") 'paredit-wrap-sexp)
