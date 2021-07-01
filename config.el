@@ -23,7 +23,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. These are the defaults.
-(setq doom-theme 'doom-nord)
+(setq doom-theme 'doom-flatwhite)
 
 ;; If you intend to use org, it is recommended you change this!
 (setq org-directory "~/org/")
@@ -135,9 +135,6 @@
 (global-set-key (kbd "s-[" ) 'paredit-wrap-square)
 (global-set-key (kbd "s-r") 'sp-splice-sexp-killing-around)
 (global-set-key (kbd "C-x b") 'ivy-switch-buffer)
-
-;; Cider keybinds
-(global-set-key (kbd "C-c C-k") 'compile-and-load)
 
 (after! counsel
   (setq counsel-rg-base-command "rg -M 240 -C 2 --with-filename --no-heading --line-number %s || true"))
